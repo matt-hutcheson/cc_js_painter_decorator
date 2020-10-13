@@ -36,7 +36,9 @@ describe('Decorator', function() {
         decorator.addPaintToStock(paintcan);
         decorator.addPaintToStock(paintcan2);
         decorator.paintRoom(room);
-        console.log(decorator.paintStock)
         assert.strictEqual(room.paintedArea, 60)
+        assert.strictEqual(decorator.checkTotalPaintStock(), 25)
+        assert.strictEqual(decorator.paintStock[0].volume, 0)
+        assert.strictEqual(decorator.paintStock[1].volume, 25)
     })
 })

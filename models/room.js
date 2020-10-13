@@ -8,9 +8,6 @@ Room.prototype.checkPaintedArea = function() {
 };
 
 Room.prototype.paintRoom = function(paintcan) {
-    console.log("paintroom start area", this.area)
-    console.log("paintroom start paintedarea", this.paintedArea)
-    console.log("paintcan start", paintcan.volume)
     if (paintcan.volume > (this.area - this.paintedArea)) {
         const remainingPaint = paintcan.volume - (this.area - this.paintedArea);
         this.paintedArea = this.area;
@@ -21,8 +18,6 @@ Room.prototype.paintRoom = function(paintcan) {
         paintcan.empty()
         return paintcan;
     };
-    console.log("paintroom end area", this.area)
-    console.log("paintroom end paintedarea", this.paintedArea)
 };
 
 module.exports = Room;
