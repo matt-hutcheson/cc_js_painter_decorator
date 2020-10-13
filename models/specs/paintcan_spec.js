@@ -7,11 +7,11 @@ describe('Paintcan', function() {
     beforeEach(function () {
         paintcan = new Paintcan(4);
     })
-    xit('should have a volume', function () {
+    it('should have a volume', function () {
         const actual = paintcan.volume;
         assert.strictEqual(actual, 4);
     });
-    xit('can be emptied', function () {
+    it('can be emptied', function () {
         paintcan.empty();
         const actual = paintcan.volume;
         assert.strictEqual(actual, 0);
