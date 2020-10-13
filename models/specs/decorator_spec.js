@@ -11,4 +11,10 @@ describe('Decorator', function() {
         const actual = decorator.paintStockVolume;
         assert.strictEqual(actual, 0);
     })
+
+    it('should be able to increase paint stock', function() {
+        decorator.addPaintToStock(4);
+        const actual = decorator.paintStockVolume;
+        assert.strictEqual(actual, 4);
+    })
 })
