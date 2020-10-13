@@ -11,20 +11,21 @@ describe('Decorator', function() {
     })
 
     it('should start with no paint', function() {
-        const actual = decorator.paintStockVolume;
+        const actual = decorator.paintStock.length;
         assert.strictEqual(actual, 0);
     })
 
     it('should be able to increase paint stock', function() {
         decorator.addPaintToStock(paintcan);
-        const actual = decorator.paintStockVolume;
-        assert.strictEqual(actual, 40);
+        decorator.addPaintToStock(paintcan);
+        const actual = decorator.paintStock.length;
+        assert.strictEqual(actual, 2);
     });
 
     it(' should be able to check if it can paint a full room', function() {
-        const room = new Room(40);
+        const room = new Room(80);
         decorator.addPaintToStock(paintcan);
-        console.log(decorator.paintStockVolume)
+        decorator.addPaintToStock(paintcan)
         const actual = decorator.canPaintFullRoom(room);
         assert.strictEqual(actual, true);
     });

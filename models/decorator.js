@@ -1,13 +1,21 @@
 const Decorator = function() {
-    this.paintStockVolume = 0
+    this.paintStock = []
 };
 
 Decorator.prototype.addPaintToStock = function(paintcan) {
-    this.paintStockVolume += paintcan.volume;
+    this.paintStock.push(paintcan);
+};
+
+Decorator.prototype.checkTotalPaintStock = function() {
+    let totalStockVolume = 0;
+    for (const paintcan of this.paintStock) {
+        totalStockVolume += paintcan.volume;
+    }
+    return totalStockVolume;
 };
 
 Decorator.prototype.canPaintFullRoom = function(room) {
-    if (room.area <= this.paintStockVolume) {
+    if (room.area <= this.checkTotalPaintStock()) {
         return true;
     } else {
         return false;
