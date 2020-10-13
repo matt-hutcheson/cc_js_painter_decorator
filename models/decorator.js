@@ -2,8 +2,8 @@ const Decorator = function() {
     this.paintStockVolume = 0
 };
 
-Decorator.prototype.addPaintToStock = function(paintVolume) {
-    this.paintStockVolume += paintVolume;
+Decorator.prototype.addPaintToStock = function(paintcan) {
+    this.paintStockVolume += paintcan.volume;
 };
 
 Decorator.prototype.canPaintFullRoom = function(room) {

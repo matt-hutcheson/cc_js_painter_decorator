@@ -18,7 +18,7 @@ describe('Paintcan', function() {
         const actual = paintcan.volume;
         assert.strictEqual(actual, 0);
     });
-    
+
     it('check is empty', function() {
         const actual = paintcan.checkIsEmpty();
         assert.strictEqual(actual, false)
