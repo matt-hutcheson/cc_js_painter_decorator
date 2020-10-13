@@ -16,5 +16,11 @@ describe('Decorator', function() {
         decorator.addPaintToStock(4);
         const actual = decorator.paintStockVolume;
         assert.strictEqual(actual, 4);
+    });
+
+    it(' should be able to check if it can paint a full room', function() {
+        decorator.addPaintToStock(80);
+        const actual = decorator.canPaintRoom();
+        assert.strictEqual(actual, true);
     })
 })
