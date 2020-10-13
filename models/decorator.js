@@ -15,10 +15,20 @@ Decorator.prototype.checkTotalPaintStock = function() {
 };
 
 Decorator.prototype.canPaintFullRoom = function(room) {
-    if (room.area <= this.checkTotalPaintStock()) {
+    if (this.checkTotalPaintStock() >= room.area) {
         return true;
     } else {
         return false;
+    };
+};
+
+Decorator.prototype.paintRoom = function(room) {
+    if (this.canPaintFullRoom(room) === true) {
+        for (paintcan of this.paintStock) {
+            if (room.checkPaintedArea() < room.area) {
+                paintcan = room.paintRoom(paintcan);
+            };
+        };
     };
 };
 

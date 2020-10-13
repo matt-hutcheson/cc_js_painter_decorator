@@ -1,5 +1,4 @@
 const assert = require('assert');
-const { isObject } = require('util');
 const Paintcan = require('../paintcan.js');
 
 describe('Paintcan', function() {

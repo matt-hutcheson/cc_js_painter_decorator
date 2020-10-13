@@ -1,5 +1,6 @@
 const assert = require('assert');
 const Room = require('../room.js');
+const Paintcan = require('../paintcan.js');
 
 describe('Room', function() {
     let room;
@@ -18,8 +19,9 @@ describe('Room', function() {
     });
 
     it('should be paintable', function () {
-        room.paintRoom(4);
+        let paintcan = new Paintcan(20);
+        paintcan = room.paintRoom(paintcan);
         const actual = room.checkPaintedArea();
-        assert.strictEqual(actual, 4);
+        assert.strictEqual(actual, 20);
     });
 })

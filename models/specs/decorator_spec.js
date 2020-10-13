@@ -8,6 +8,7 @@ describe('Decorator', function() {
     beforeEach(function() {
         decorator = new Decorator();
         paintcan = new Paintcan(40);
+        paintcan2 = new Paintcan(45);
     })
 
     it('should start with no paint', function() {
@@ -29,5 +30,13 @@ describe('Decorator', function() {
         const actual = decorator.canPaintFullRoom(room);
         assert.strictEqual(actual, true);
     });
-    // it ('should be able to paint room', )
+
+    it ('should be able to paint room', function() {
+        const room = new Room(60);
+        decorator.addPaintToStock(paintcan);
+        decorator.addPaintToStock(paintcan2);
+        decorator.paintRoom(room);
+        console.log(decorator.paintStock)
+        assert.strictEqual(room.paintedArea, 60)
+    })
 })
