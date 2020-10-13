@@ -8,7 +8,7 @@ describe('Decorator', function() {
     })
 
     it('should start with no paint', function() {
-        const actual = decorator.paintVolume;
+        const actual = decorator.paintStockVolume;
         assert.strictEqual(actual, 0);
     })
 })
