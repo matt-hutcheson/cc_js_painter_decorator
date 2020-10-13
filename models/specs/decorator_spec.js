@@ -23,7 +23,8 @@ describe('Decorator', function() {
 
     it(' should be able to check if it can paint a full room', function() {
         const room = new Room(40);
-        decorator.addPaintToStock(0);
+        decorator.addPaintToStock(paintcan);
+        console.log(decorator.paintStockVolume)
         const actual = decorator.canPaintFullRoom(room);
         assert.strictEqual(actual, true);
     });

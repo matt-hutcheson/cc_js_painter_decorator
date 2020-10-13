@@ -7,10 +7,10 @@ Decorator.prototype.addPaintToStock = function(paintcan) {
 };
 
 Decorator.prototype.canPaintFullRoom = function(room) {
-    if (room.area > this.paintStockVolume) {
-        return false;
-    } else {
+    if (room.area <= this.paintStockVolume) {
         return true;
+    } else {
+        return false;
     };
 };
 
