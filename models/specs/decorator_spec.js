@@ -5,6 +5,8 @@ const Paintcan = require('../paintcan.js')
 
 describe('Decorator', function() {
     let decorator;
+    let paintcan;
+    let paintcan2;
     beforeEach(function() {
         decorator = new Decorator();
         paintcan = new Paintcan(40);
@@ -40,5 +42,17 @@ describe('Decorator', function() {
         assert.strictEqual(decorator.checkTotalPaintStock(), 25)
         assert.strictEqual(decorator.paintStock[0].volume, 0)
         assert.strictEqual(decorator.paintStock[1].volume, 25)
+    })
+
+    it('should be able to clear out empty paintcans from stock', function() {
+        const paintcan3 = new Paintcan(0);
+        const paintcan4 = new Paintcan(10);
+        decorator.addPaintToStock(paintcan);
+        decorator.addPaintToStock(paintcan2);
+        decorator.addPaintToStock(paintcan3);
+        decorator.addPaintToStock(paintcan4);
+        decorator.paintStock = decorator.removeEmptys();
+        console.log("filtered stock", decorator)
+        assert.strictEqual(decorator.paintStock[2].volume, 10);        
     })
 })

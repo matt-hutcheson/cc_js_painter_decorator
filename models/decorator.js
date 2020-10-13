@@ -24,12 +24,22 @@ Decorator.prototype.canPaintFullRoom = function(room) {
 
 Decorator.prototype.paintRoom = function(room) {
     if (this.canPaintFullRoom(room) === true) {
-        for (paintcan of this.paintStock) {
+        for (let paintcan of this.paintStock) {
             if (room.checkPaintedArea() < room.area) {
                 paintcan = room.paintRoom(paintcan);
             };
         };
     };
 };
+
+Decorator.prototype.removeEmptys = function() {
+    const filteredArray = [];
+    for (can of this.paintStock) {
+        if (can.volume !== 0) {
+            filteredArray.push(can);
+        };
+    };
+    return filteredArray;
+}
 
 module.exports = Decorator;
