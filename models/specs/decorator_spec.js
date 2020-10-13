@@ -1,5 +1,6 @@
 const assert = require('assert');
 const Decorator = require('../decorator.js');
+const Room = require('../room.js');
 
 describe('Decorator', function() {
     let decorator;
@@ -19,8 +20,9 @@ describe('Decorator', function() {
     });
 
     it(' should be able to check if it can paint a full room', function() {
+        const room = new Room(40);
         decorator.addPaintToStock(80);
-        const actual = decorator.canPaintRoom();
+        const actual = decorator.canPaintFullRoom(room);
         assert.strictEqual(actual, true);
     })
 })
